@@ -13,7 +13,10 @@ public class ReadFile {
             String line = reader.readLine();
 
             while (line != null) {
-                System.out.println(line);
+                if (!line.startsWith(" ")) {
+                    System.out.println(line);
+                }
+
                 // read next line
                 line = reader.readLine();
             }

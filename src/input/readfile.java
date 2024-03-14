@@ -9,7 +9,7 @@ public class ReadFile {
         BufferedReader reader;
 
         try {
-            reader = new BufferedReader(new FileReader("sample.txt"));
+            reader = new BufferedReader(new FileReader("Tests/TestProg_PicSim_20230413/TPicSim1.LST"));
             String line = reader.readLine();
 
             while (line != null) {

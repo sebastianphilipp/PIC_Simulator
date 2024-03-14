@@ -1,7 +1,10 @@
 package src;
 
+import src.input.ReadFile;
+
 public class mainclass {
     public static void main(String[] args){
-        System.out.println("Hallo Welt");
+        ReadFile readFile = new ReadFile();
+        readFile.readFile();
     }
 }

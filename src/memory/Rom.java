@@ -1,18 +1,17 @@
 package src.memory;
 
 public class Rom {
-    private int[] programmCounter;
+    private int[] programCounter;
 
     public Rom(int size) {
-        programmCounter = new int[size];
+        programCounter = new int[size];
     }
 
     public void writeAddress(int address, int val) {
-        programmCounter[address] = val;
+        programCounter[address] = val;
     }
 
     public int readAddress(int address) {
-        return programmCounter[address];
-
+        return programCounter[address];
     }
 }

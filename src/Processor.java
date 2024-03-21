@@ -12,7 +12,7 @@ public class Processor {
         this.rom = rom;
     }
 
-    public int[] decode() {
+    public void decode() {
         int command = rom.readAddress(ram.readRegister(0, 2));
         int secondBlock = (command >> 8) & 0b001111;
         //decode for literal & control commands
@@ -158,7 +158,9 @@ public class Processor {
                 System.out.println("no command with that 2 starting bits");
                 break;
         }
+    }
 
-        return new int[1];
+    public void addLW(){
+
     }
 }

@@ -28,7 +28,7 @@ public class Processor {
                     case 0b1000:
                         System.out.println("iorlw");
                         break;
-                    case 0b0000:
+                    case 0b0000, 0b0010, 0b0001, 0b0011:
                         System.out.println("movlw");
                         break;
                     case 0b0100:
@@ -54,6 +54,11 @@ public class Processor {
                 break;
             case 0b00:
                 if ((secondBlock) == 0) {
+                    //3 block starts with 1?
+                    if ((command >> 7) == 1) {
+                        System.out.println("MOVWF");
+                        break;
+                    }
                     //last 4 bits?
                     switch (command & 0b1111) {
                         case 0b0100:
@@ -70,12 +75,7 @@ public class Processor {
                             break;
                         //two operations from BYTE-ORIENTED FILE REGISTER OPERATIONS with 00
                         case 0:
-                            //3 block starts with?
-                            if ((command >> 7) == 1) {
-                                System.out.println("MOVWF");
-                            } else {
-                                System.out.println("NOP");
-                            }
+                            System.out.println("NOP");
                             break;
                         default:
                             System.out.println("No for 00 Command");

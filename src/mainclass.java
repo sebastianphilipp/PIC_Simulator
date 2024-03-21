@@ -14,7 +14,14 @@ public class mainclass {
         Processor processor = new Processor(ram, rom);
 
         readFile.readFile(filePath, rom);
+        for (int i = 0; i < 1024; i++) {
+            if (rom.readAddress(i) == 0) {
+                continue;
+            }
+            ram.writeRegister(0, 2, i);
+            System.out.println("Address: " + i + " Data: " + Integer.toBinaryString(rom.readAddress(i)));
+            processor.decode();
+        }
 
-        processor.decode();
     }
 }
